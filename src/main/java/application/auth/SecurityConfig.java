@@ -33,7 +33,8 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
                 "/swagger-ui.html",
                 "/swagger-ui/**",
                 "/docs",
-                "/docs/**"
+                "/docs/**",
+                "/graphiql"
             ).permitAll()
             .anyRequest().authenticated())
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);

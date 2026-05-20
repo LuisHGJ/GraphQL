@@ -1,0 +1,23 @@
+type Afericao {
+    id: ID!
+    valor: String
+    idSensor: String
+    unidade: String
+}
+
+type Query {
+    afericoes: [Afericao]
+    afericaoPorId(id: ID!): Afericao
+}
+
+input AfericaoInput {
+    idSensor: String!,
+    unidade: String!,
+    valor: String!
+}
+
+type Mutation {
+    criarAfericao(dados: AfericaoInput!): Afericao!
+    alterarAfericao(id: ID!, dados: AfericaoInput): Afericao!
+    excluirAfericao(id: ID!): Boolean!
+}

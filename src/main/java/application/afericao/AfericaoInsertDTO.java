@@ -20,7 +20,7 @@ public record AfericaoInsertDTO(
         requiredMode = Schema.RequiredMode.REQUIRED)
     String valor) {
 
-    public AfericaoInsertDTO(Afericao dados) {
-        this(dados.getIdSensor(), dados.getUnidade(), dados.getValor());
-    }    
+    // public AfericaoInsertDTO(Afericao dados) {
+    //     this(dados.getIdSensor(), dados.getUnidade(), dados.getValor());
+    // }    
 }

@@ -1,5 +1,5 @@
 @url = http://localhost:8080
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGaWxtZXMgQVBJIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3NzYyODk2OTR9.AI5sagom1cup7ZfrX8-ddZ2e6QirAQ42SyhtGYT9-Kg
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGaWxtZXMgQVBJIiwic3ViIjoiYWRtaW4iLCJleHAiOjE3NzkzMjAyMjF9.AtwpAmkLWkFZqghTS6I0-OmS2Fy22bNftlIieWwbd5s
 
 POST {{url}}/afericoes
 Authorization:  Bearer {{token}}
@@ -33,3 +33,34 @@ Authorization:  Bearer {{token}}
 ###
 DELETE {{url}}/afericoes/1
 Authorization:  Bearer {{token}}
+
+###
+
+POST {{url}}/graphql
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "query": "query { afericoes { id idSensor unidade valor } }"
+}
+
+###
+POST {{url}}/graphql
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "query": "mutation { criarAfericao ( dados: { idSensor: \"T1\", unidade: \"Graus Celsius\", valor: \"26\" } ) {id idSensor unidade valor} }"
+}
+
+###
+
+POST {{url}}/graphql
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "query": "mutation { alterarAfericao ( id: 1, dados: { idSensor: \"T1\", unidade: \"Alteradoo\", valor: \"26\" } ) {id idSensor unidade valor} }"
+}
+
+###
